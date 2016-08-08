@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="task5-2.css">
+    <script src="jquery-3.0.0.min.js"></script>
+    <script src="task5-2.js"></script>
+    <script>
+        $(function () {
+            if (getUrl()) {
+                editAjax();
+                $("#edit").click(function () {
+                    var addName = $("#name").val();
+                    var addQq = $("#number").val();
+                    var addType = $("input[name=type]:checked").val();
+                    var addSchool = $("#school").val();
+                    var addTalent = $("input[name=talent]:checked").val();
+                    var addLevel = $("input[name=level]:checked").val();
+                    var addJoinTime = $("#joinTime").val();
+                    var addWish = $("#wish").val();
+                    console.info(addName, addQq, addType, addSchool, addTalent, addLevel, addJoinTime, addWish);
+
+                    modifyAjax(addName, addQq, addType, addSchool, addTalent, addLevel, addJoinTime, addWish)
+                })
+            }
+            else {
+                $("#save").click(function () {
+                    var addName = $("#name").val();
+                    var addQq = $("#number").val();
+                    var addType = $("input[name=type]:checked").val();
+                    var addSchool = $("#school").val();
+                    var addTalent = $("input[name=talent]:checked").val();
+                    var addLevel = $("input[name=level]:checked").val();
+                    var addJoinTime = $("#joinTime").val();
+                    var addWish = $("#wish").val();
+                    console.info(addName, addQq, addType, addSchool, addTalent, addLevel, addJoinTime, addWish);
+                    setAjax(addName, addQq, addType, addSchool, addTalent, addLevel, addJoinTime, addWish);
+                });
+
+            }
+
+            $("#back,#pase").click(function () {
+                var url = getUrl();
+                if (url)
+                    location.href = "task5-3.html?" + url;
+                else
+                    location.href = "task5-1.html";
+            });
+
+
+        })
+
+    </script>
+
+    <title>添加</title>
+
+</head>
+<body>
+<div class="wrap">
+    <div class="top">
+        <span id="signup">报名页</span><span id="back">返回</span>
+    </div>
+    <form>
+        <label for="name">名字:</label>
+        <input type="text" id="name" onblur="checkname()" onfocus="show_tip()"><span id="tip" class="info"></span><br>
+        <label for="number"> QQ:
+        <input type="text" id="number"><br></label>
+        <label>修真类型:
+            <label for="num0"><input type="radio" name="type" id="num0" value="1">CSS
+            </label>
+            <label for="num1"><input type="radio" name="type" id="num1" value="2">JS
+            </label>
+            <label for="num2"> <input type="radio" name="type" id="num2" value="3">JAVA
+            </label>
+            <label for="num3"> <input type="radio" name="type" id="num3" value="4">运维
+            </label>
+            <label for="num4"> <input type="radio" name="type" id="num4" value="5">DBA
+            </label>
+            <label for="num5"> <input type="radio" name="type" id="num5" value="6">产品
+            </label>
+            <label for="num6"> <input type="radio" name="type" id="num6" value="7">IOS
+            </label>
+            <label for="num7"> <input type="radio" name="type" id="num7" value="8">Android
+            </label>
+
+        </label><br>
+        <label for="school">毕业学校:
+        <input type="text" id="school"><br>
+        </label>
+        <label id="tall">资质:
+            <label for="ta1"> <input type="checkbox" name="talent" id="ta1" value="1">学渣
+            </label>
+            <label for="ta2"> <input type="checkbox" name="talent" id="ta2" value="2">学霸
+            </label>
+        </label><br>
+        <label>修真等级:
+            <label for="lel1"> <input type="radio" id="lel1" name="level" value="1"> 0基础
+            </label>
+            <label for="lel2"> <input type="radio" id="lel2" name="level" value="2"> 修行3个月以内
+            </label>
+            <label for="lel3"> <input type="radio" id="lel3" name="level" value="3"> 6个月以内
+            </label>
+            <label for="lel4"> <input type="radio" id="lel4" name="level" value="4"> 一年以内
+            </label>
+            <label for="lel5"> <input type="radio" id="lel5" name="level" value="5"> 3年以内
+            </label>
+            <label for="lel6"> <input type="radio" id="lel6" name="level" value="6"> 3年以上
+            </label>
+        </label><br>
+        <label for="joinTime">入学时间:
+        <input type="text" id="joinTime"><br></label>
+        <label for="wish">修行立志:
+        <input type="text" id="wish"><br></label>
+    </form>
+    <div class="btn">
+        <button id="edit">
+            修改
+        </button>
+        <button id="save">
+            报名
+        </button>
+        <button id="pase">
+            取消
+        </button>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+.wrap{
+    width:1000px;
+    height:auto;
+    background-color: #d3d7d4;
+    margin:20px auto;
+}
+
+.top{
+    display: block;
+    text-align: center;
+    font-size: 25px;
+}
+
+.top #signup{
+    float: left;
+    margin: 30px;}
+
+.top #back{
+    float: right;
+    cursor:pointer;
+    margin: 30px;
+    background-color: #9d9087;
+    border-radius:2px;
+padding:10px;
+}
+
+.top #back:hover{
+    background-color: #999d9c;
+    color:white;
+
+}
+
+form{
+    clear:both;
+    position: relative;
+}
+
+form #name{
+    width: 200px;
+    height: 30px;
+    position: absolute;
+    top: 3px;
+    left: 140px;
+}
+
+label#tall{
+
+margin-left: 80px;
+}
+
+label[for=name]
+{
+
+margin-left: 80px;
+}
+
+
+label[for=number]
+{
+
+margin-left: 100px;
+}
+
+form #number{
+    width: 200px;
+    height: 30px;
+    margin:10px 0;
+    position: absolute;
+    top: 34px;
+    left: 140px;
+}
+
+form #joinTime{
+    width: 200px;
+    height: 30px;
+    margin:10px 0;
+    position: absolute;
+    top: 234px;
+    left: 140px;
+}
+
+
+input[type=text]{
+
+     width: 200px;
+     border-radius:5px ;
+     border:None;
+     height: 30px;
+     background-color:#a1a3a6;
+ }
+
+input[type=text]:hover{
+
+
+    background-color:#999d9c;
+    color:white;
+}
+
+form>label{
+    
+margin-left: 40px;
+    
+font-size: 20px;
+    
+line-height: 40px;
+}
+button{
+    font-size: 30px;
+    border:1px solid black;
+    border-radius:2px;
+    margin:0 80px;
+}
+ .but{
+     text-align: center;
+     padding:10px;
+
+ }
+ #save{
+     background-color: #494e8f;
+}
+ #pase {
+     background-color: #8f4b38;
+ }
+
+ button{
+     cursor:pointer;
+
+ }
+
+ .btn{
+     text-align: center;
+     padding: 20px 0;
+ }
+
+.bad{
+    color:red;
+}
+.ok{
+    color:blue;
+}
+
+#save:hover{
+    background-color: #009ad6;
+    color:white;
+}
+
+#pase:hover{
+    background-color: #b7704f;
+    color:white;
+}

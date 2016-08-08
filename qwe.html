@@ -1,0 +1,85 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+
+    <script src="jquery-3.0.0.min.js"></script>
+    <script language=javascript>
+        $(document).ready(function () {
+            $("#submit").click(function () {
+                check();
+            });
+        });
+        function back() {
+            $("#form_reg").css("display", "inline");
+            $("#msg_reg").get(0).style.visibility = "hidden";
+        }
+        function check() {
+            var dataValidated = true;
+            var data_reg = $("#form_reg").serializeArray();
+
+            jQuery.each(data_reg, function (i, field) {
+                if (field.value == "") {
+                    alert(field.name + "的值不能为空！");
+                    dataValidated = false;
+                    return false;
+                }
+            });
+
+
+            if (dataValidated) {
+                $.ajax({
+                    type: "POST",
+                    url: "a/student",
+                    data: $("#form_reg").serialize(),
+                    success: function (msg) {
+                        alert("提交成功");
+                    }
+                });
+
+                $("#form_reg").css("display", "none");
+                $("#msg_reg").get(0).style.visibility = "visible";
+
+                showValue(data_reg);
+            }
+        }
+        function showValue(data) {
+            $("#panel_reg").css("display", "inline");
+            $("#panel_reg2").append("<tr>");
+            jQuery.each(data, function (i, field) {
+                $("#panel_reg2").append("<td>" + field.value + "</td>");
+            });
+            $("#panel_reg2").append("</tr>");
+        }
+    </script>
+</head>
+<body>
+<form id="form_reg">
+    注册表单<br/>
+    <label>姓名<input type=text name="name" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')"
+                    onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))"
+                    maxLength=4/></label><br/>
+    <label>性别：
+        <label><input type=radio name="sex" value="男" checked/>男</label>
+        <label><input type=radio name="sex" value="女"/>女</label>
+    </label><br/>
+    <label>手机：<input type="text" name="tel" id="tel"/></label><br/>
+    <label>邮箱：<input type="text" name="email" id="email"/></label><br/>
+    <label>操作<input type="button" id="submit" value="无刷新提交"/></label>
+</form>
+<div id="msg_reg" style="visibility:hidden;">已经提交成功 <a href=# onclick="back();">继续添加</a></div>
+<table id="panel_reg" style="display:none;">
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>手机</th>
+        <th>邮箱</th>
+    </tr>
+    </thead>
+    <tbody id="panel_reg2">
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="task5-3.css">
+    <script src="jquery-3.0.0.min.js"></script>
+
+    <script>
+        $(function () {
+
+            $("#back").click(function () {
+                location.href = "task5-1.html";
+            })
+
+            $("#delete").click(function () {
+                delet();
+            })
+
+            $("#compile").click(function () {
+                edit();
+            })
+        })
+
+
+    </script>
+    <script src="task5-3.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div class="wrap">
+    <div class="top">
+        <span>详情</span><span id="back">返回</span>
+    </div>
+    <div class="content">
+        <div id="name">
+            <h2>姓名:</h2><span></span>
+        </div>
+        <div id="qq">
+            <h2>QQ:</h2><span></span>
+        </div>
+        <div id="type">
+            <h2>修真类型:</h2><span></span>
+        </div>
+        <div id="school">
+            <h2>毕业学校:</h2><span></span>
+        </div>
+        <div id="talent">
+            <h2>资质:</h2><span></span>
+        </div>
+        <div id="level">
+            <h2>修行等级:</h2><span></span>
+        </div>
+        <div id="joinTime">
+            <h2>预计入学时间:</h2><span></span>
+
+        </div>
+        <div id="wish">
+            <h2>修行立愿</h2><span></span>
+
+        </div>
+    </div>
+    <div class="bottom">
+        <button id="compile">编辑</button>
+        <button id="delete">删除</button>
+    </div>
+
+</div>
+</body>
+</html>
